@@ -1,0 +1,129 @@
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+li{
+    list-style-type: none;
+}
+
+label .menu{
+    position: absolute;
+    right:.1%;
+    top:-100px;
+    z-index: 0;
+    height: 200px;
+    width: 100px;
+    background-color: #FF4444;
+    /* http://jsfiddle.net/mitrosin/xb9edv64/     */
+    border-radius: 0 0 0 100px;
+    /* box-shadow: 0 0 0 0 #FF4444,0 0 0 0 #FF4444; */
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+
+}
+
+/* Show menu */
+/* https://www.youtube.com/watch?v=DZg6UfS5zYg&t=163s
+/* https://codepen.io/bradtraversy/pen/vMGBjQ */
+.menu-wrap label .toggler:checked ~ ul   {
+
+    visibility: visible;
+}
+
+label .hamburger{
+    position: absolute;
+    top:135px;
+    left:50px;
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+    display: block;
+    transform-origin:center;
+    transition: 0.5s ease-in-out;
+
+}
+
+label .hamburger:after,label .hamburger:before{
+    content:"";
+    position: absolute;
+    display: block;
+    width:100%;
+    height: 100%;
+    background-color: #000;
+}
+
+label .hamburger:before{
+    top:-10px;
+}
+
+label .hamburger:after{
+    bottom: -10px;
+}
+
+label input {
+    display: none;
+}
+
+
+label input:checked + .menu {
+    box-shadow: 0 0 0 100vw #FF4444, 0 0 0 100vh #FF4444;;
+    border-radius: 0;
+}
+
+label input:checked + .menu .hamburger{
+    transform: rotate(45deg);
+}
+
+label input:checked + .menu .hamburger:after{
+    transform: rotate(90deg);
+    bottom:0;
+}
+
+label input:checked + .menu .hamburger:before{
+    transform: rotate(90deg);
+    top:0;
+}
+
+label input:checked + .menu + ul{
+    opacity: 1;
+}
+
+label ul{
+    z-index: 200;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.25s 0s ease-in-out;
+    visibility: hidden;
+}
+
+label a {
+    margin-bottom: 1em;
+    font-size:18px;
+    display:block;
+    color:#000;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: bold;
+    padding:12px 36px;
+    transition: 0.5s ease-in-out;
+}
+
+label a:hover{
+    background-color: white;
+    color:#fff;
+    letter-spacing: 3px;
+
+}
